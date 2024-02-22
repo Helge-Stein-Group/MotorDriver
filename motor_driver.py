@@ -6,13 +6,13 @@ class motorError(Exception):
     def __init__(self, message):
         super().__init__(message)
 
-class Motor(num):
-    def __init__(self,conf,baud,timeout):
+class Motor():
+    def __init__(self,num,conf,baud,timeout):
         """ Initializes the serial connection. """
+        self.num = num
         self.conf = conf
         self.baud = baud
         self.timeout = timeout
-      self.num = num
         #try: 
         self.ser = serial.Serial(conf, baud, timeout=timeout)
         # except serial.SerialException:
