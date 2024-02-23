@@ -40,7 +40,7 @@ class Motor():
           
     def stop(self):
       """ Stops the motor. """
-      self.send(str(self.num) + "S"))
+      self.send(str(self.num) + "S")
 
     def setAcceleration(self, acceleration):
         """ Sets the acceleration of the motor. """
@@ -53,6 +53,14 @@ class Motor():
         """ Moves the motor clockwise at the current speed for a set number of steps. """
         self.send(str(self.num) + "F" + str(steps))
 
- ''' def moveCounterClockwise(self, steps):
+    def moveUp(self, steps):
+        """ Moves the motor clockwise at the current speed for a set number of steps. """
+        self.send(str(self.num) + "F" + str(steps))
+
+    def moveDown(self, steps):
+        """ Moves the motor clockwise at the current speed for a set number of steps. """
+        self.send(str(self.num) + "F-" + str(steps))
+
+''' def moveCounterClockwise(self, steps):
         """ Moves the motor counter-clockwise at the current speed for a set number of steps. """
         self.send(str(self.num) + "B" + str(steps) + "\n")'''
