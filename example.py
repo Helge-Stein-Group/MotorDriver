@@ -7,9 +7,5 @@ print('The motor is connected: ', motor.checkConnection())
 motor.setSpeed(200)
 time.sleep(2)
 motor.move(100)
-time.sleep(2)
-motor.moveUp(400)
-time.sleep(2)
-motor.moveDown(400)
-time.sleep(2)
+
 
