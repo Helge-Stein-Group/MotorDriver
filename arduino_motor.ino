@@ -65,7 +65,10 @@ void setup() {
 
 void loop() {
 //I commented out all the print statments we used for testing.
-//steppers[0]->moveTo(100);
+//steppers[0]->moveTo(200);
+//steppers[0]->runToPosition();
+steppers[1]->moveTo(200);
+steppers[1]->runToPosition();
 
 while (Serial.available() > 0 ) {
     char command = Serial.read();
