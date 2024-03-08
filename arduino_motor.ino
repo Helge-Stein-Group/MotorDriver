@@ -65,10 +65,7 @@ void setup() {
 
 void loop() {
 //I commented out all the print statments we used for testing.
-//steppers[0]->moveTo(200);
-//steppers[0]->runToPosition();
-steppers[1]->moveTo(200);
-steppers[1]->runToPosition();
+//steppers[0]->moveTo(100);
 
 while (Serial.available() > 0 ) {
     char command = Serial.read();
@@ -97,25 +94,31 @@ while (Serial.available() > 0 ) {
       steppers[stepNum]->moveTo(stepsToMove);
       steppers[stepNum]->runToPosition();
       steppers[stepNum]->setCurrentPosition(0);
+      Serial.println("MOTOR_FINISHED");
+
     } else if (inputString.startsWith("S")) {
       steppers[stepNum]->stop();
+      Serial.println("MOTOR_FINISHED");
 
     } else if (inputString.startsWith("R")) {
       //Serial.print("InsideR");
       steppers[stepNum]->moveTo(200);
       steppers[stepNum]->runToPosition();
       steppers[stepNum]->setCurrentPosition(0);
+      Serial.println("MOTOR_FINISHED");
 
     } else if (inputString.startsWith("V")) {
       int speedStepper = inputString.substring(1).toInt();
       steppers[stepNum]->setSpeed(speedStepper);
       steppers[stepNum]->setMaxSpeed(speedStepper);
 	    steppers[stepNum]->setAcceleration(speedStepper);
+      Serial.println("MOTOR_FINISHED");
     } 
-
+    
     inputString = "";
     stringComplete = false;
   }
   inputString = "";
   stringComplete = false;
 }
+
